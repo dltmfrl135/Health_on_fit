@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run SquatCounter (ESP32 Fallback)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}\\squat_counter_basic.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": [
+        "--source", "http://172.20.10.9/stream",
+        "--fallback-mjpeg",
+        "--tracker", "KCF",
+        "--ema", "0.20",
+        "--drop", "0.18",
+        "--rise", "0.12",
+        "--detect-every", "15",
+        "--roi", "0,0.2,1,1"
+      ]
+    },
+    {
+      "name": "Run SquatCounter (Video)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}\\squat_counter_basic.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": [
+        "--source", "squat.mp4",
+        "--tracker", "CSRT",
+        "--roi", "0,0.15,1,1"
+      ]
+    }
+  ]
+}
